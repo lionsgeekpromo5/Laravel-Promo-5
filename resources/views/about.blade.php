@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @else
             <style>
@@ -14,16 +14,13 @@
         @endif
 </head>
 <body>
-    <nav class="px-2 py-3 bg-cyan-300 flex items-center font-bold gap-x-4">
+    <div>
+   <nav class="px-2 py-3 bg-cyan-300 flex items-center font-bold gap-x-4">
         <a href="{{ route('home.index') }}">Home</a>
         <a href="{{ route('about.index') }}">About</a>
     </nav>
-    <h1 class="text-center text-xl font-bold">Welcome Back {{ $name }}</h1>
-    <h2>{{ $name }} Skills are :</h2>
-    <ul>
-        @foreach ($skills as $skill)
-            <li>{{ $skill }}</li>
-        @endforeach
-    </ul>
+   <h1>welcome back {{ $name }}</h1>
+</div>
+
 </body>
 </html>
