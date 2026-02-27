@@ -13,3 +13,6 @@ Route::get('/', function () {
 // } );
 Route::get('/home',  [HomeController::class, 'index'])->name('home.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+Route::get('/contact', function () {
+    return view('Contact.contact');
+})->name('contact');
