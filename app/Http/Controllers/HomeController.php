@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,11 +14,13 @@ class HomeController extends Controller
 
         $city = 'Mohammedia';
         $skills = ['React', 'Laravel', 'Css'];
+        $studentsList = Student::all();
         
         
         // return view('home', compact('username', 'city', 'age', 'skills'));
         return view('home', [
-            'skills' => $skills
+            'skills' => $skills,
+            'studentsList' => $studentsList
         ]);
     }
 
