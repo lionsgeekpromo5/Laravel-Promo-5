@@ -2,4 +2,5 @@
         <a href="{{ route('home.index') }}">Home</a>
         <a href="{{ route('about.index') }}">About</a>
         <a href="{{ route('contact') }}">Contact</a>
+        <a href="{{ route('students.index') }}">Students</a>
     </nav>

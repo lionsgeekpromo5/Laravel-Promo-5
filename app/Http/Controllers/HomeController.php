@@ -14,7 +14,11 @@ class HomeController extends Controller
 
         $city = 'Mohammedia';
         $skills = ['React', 'Laravel', 'Css'];
-        $studentsList = Student::all();
+        $studentsList = Student::where('class', 'media')->get();
+        $firstStudent = Student::first();
+        $thirdStudent = Student::where('id' , 3)->get();
+        dd($thirdStudent);
+
         
         
         // return view('home', compact('username', 'city', 'age', 'skills'));
