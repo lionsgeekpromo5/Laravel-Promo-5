@@ -22,9 +22,7 @@
         <option  class="font-semibold text-slate-300" disabled selected>Please Select Your Class</option>
         <option  class="font-semibold text-slate-300" value='coding'>Coding</option>
         <option  class="font-semibold text-slate-300" value='media'>Media</option>
-
       </select>
-
     </div>
     <div class="text-center">
       <button type="submit" class="cursor-pointer rounded-lg bg-blue-700 px-8 py-5 text-sm font-semibold text-white">Submit Form</button>

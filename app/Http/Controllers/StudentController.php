@@ -29,6 +29,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $student = $request->all();
+        dd($request->progress_value);
         $request->validate([
             'name' => 'required|max:10',
             'email' => 'required',
