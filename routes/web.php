@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,8 @@ Route::get('/register-form', [ParticipantController::class, 'create'])->name('fo
 Route::get('/participants', [ParticipantController::class, 'index'])->name('participants');
 Route::post('/participanst/store', [ParticipantController::class, 'store'])->name('participants.store');
 Route::get('/participant/{participant}', [ParticipantController::class, 'show'])->name('participant.show');
+
+Route::resource('products', ProductController::class);
 Route::get('/contact', function () {
     return view('Contact.contact');
 })->name('contact');
