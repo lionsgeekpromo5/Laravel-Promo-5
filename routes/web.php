@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\ProductController;
@@ -24,6 +25,8 @@ Route::post('/participanst/store', [ParticipantController::class, 'store'])->nam
 Route::get('/participant/{participant}', [ParticipantController::class, 'show'])->name('participant.show');
 
 Route::resource('products', ProductController::class);
+Route::resource('emails', EmailController::class);
+Route::post('/emails/filter', [EmailController::class, 'filterEmails'])->name('emails.filter');
 Route::get('/contact', function () {
     return view('Contact.contact');
 })->name('contact');

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Email;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,10 +24,12 @@ class AppServiceProvider extends ServiceProvider
         //
         $username = 'Flan';
         $age = 20;
+        $emails = Email::all();
         View::share(
             [
                 'name' => $username,
-                'age' => $age
+                'age' => $age,
+                'emails' => $emails
             ]
         );
     }
