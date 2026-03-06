@@ -19,7 +19,7 @@
                     @foreach ($products as $product)
                         <tr class="border-b">
                             <td class="px-6 py-4 flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
+                                <img src="{{ asset('storage/' . $product->image) }}"
                                     alt="Product" class="w-12 h-12 rounded-md">
                                 <div>
                                     <p class="text-gray-800 font-medium">{{ $product->name }}</p>

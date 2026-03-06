@@ -61,7 +61,9 @@ class EmailController extends Controller
                 $query->where('is_read', $request->is_read)->get();
             }
             $emails = $query->get();
-            return view('Contact.contact', compact('emails'));
+            $prio = $request->email_priority;
+            $read = $request->is_read;
+            return view('Contact.contact', compact('emails', 'prio', 'read'));
 
             
     }

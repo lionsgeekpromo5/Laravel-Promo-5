@@ -19,7 +19,7 @@
         </div>
 
         <div class="p-6 space-y-6">
-            <form action="{{ route('products.store') }}" method="POST">
+            <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
@@ -40,6 +40,12 @@
                         <input type="number" min="1" name="stock" id="brand"
                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                             placeholder="x30" required="">
+                    </div>
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="brand" class="text-sm font-medium text-gray-900 block mb-2">Image</label>
+                        <input type="file"  name="image" accept="image/png,jpg,webp"
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                            placeholder="x30" >
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="brand" class="text-sm font-medium text-gray-900 block mb-2">Size</label>

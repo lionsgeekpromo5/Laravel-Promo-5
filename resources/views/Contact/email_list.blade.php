@@ -10,15 +10,15 @@
             <select id="pricingType" name="email_priority"
                 class="w-full h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
                 <option value="all" selected="">All</option>
-                <option value="urgent">Urgent</option>
-                <option value="not_urgent">Not Urgent</option>
-                <option value="important">Important</option>
+                <option value="urgent" @selected($prio == 'urgent')>Urgent</option>
+                <option value="not_urgent" @selected($prio == 'not_urgent')>Not Urgent</option>
+                <option value="important" @selected($prio == 'important')>Important</option>
             </select>
             <select  name="is_read"
                 class="w-full h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
                 <option value="all" selected="">All</option>
-                <option value="1">Read</option>
-                <option value="0">Unread</option>
+                <option value="1" @selected($read == '1')>Read</option>
+                <option value="0" @selected($read == '0')>Unread</option>
             </select>
             <button type="submit" class="w-[10vw] rounded-md bg-blue-700 text-white">Apply Filter</button>
         </form>
