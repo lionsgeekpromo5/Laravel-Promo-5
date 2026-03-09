@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\ProductController;
@@ -23,10 +24,14 @@ Route::get('/register-form', [ParticipantController::class, 'create'])->name('fo
 Route::get('/participants', [ParticipantController::class, 'index'])->name('participants');
 Route::post('/participanst/store', [ParticipantController::class, 'store'])->name('participants.store');
 Route::get('/participant/{participant}', [ParticipantController::class, 'show'])->name('participant.show');
-
+//* Products
 Route::resource('products', ProductController::class);
+//* Emails
 Route::resource('emails', EmailController::class);
 Route::post('/emails/filter', [EmailController::class, 'filterEmails'])->name('emails.filter');
+
+//* Gallery
+Route::resource('/gallery', GalleryController::class);
 Route::get('/contact', function () {
     return view('Contact.contact');
 })->name('contact');
