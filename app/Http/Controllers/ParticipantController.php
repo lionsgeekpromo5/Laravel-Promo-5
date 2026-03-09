@@ -12,7 +12,7 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-        $participants = Participant::all();
+        $participants = Participant::paginate(3);
         return view('Participant.participants_list', [
             'participants' => $participants
         ]);

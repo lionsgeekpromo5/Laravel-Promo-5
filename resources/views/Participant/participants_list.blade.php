@@ -34,4 +34,5 @@
 
     </tbody>
 </table>
+<div>{{ $participants->links() }}</div>
 @endsection

@@ -7,6 +7,8 @@ use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use function Flasher\Prime\flash;
+
 class GalleryController extends Controller
 {
     /**
@@ -46,6 +48,9 @@ class GalleryController extends Controller
             'photographer' => $request->photographer,
             'category' => $request->category
         ]);
+        flash()
+            ->title('Product Added')
+            ->success('Image has beed added successfully');
         return redirect('/gallery');
     }
 
@@ -109,6 +114,10 @@ class GalleryController extends Controller
         Storage::disk('public')->delete($path);
          //* delete it from database
         $gallery->delete();
+        flash()
+            ->title('Image Deleted')
+            ->position('top-left')
+            ->success('Image has been deleted Successfully');
         return back();
     }
 }
