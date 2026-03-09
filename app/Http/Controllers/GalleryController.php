@@ -62,7 +62,8 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        $categories = Category::all();
+        return view('Gallery.edit', compact('categories', 'gallery'));
     }
 
     /**
@@ -70,7 +71,32 @@ class GalleryController extends Controller
      */
     public function update(Request $request, Gallery $gallery)
     {
-        //
+        $request->validate([
+            'photographer' => 'required',
+            'category' => 'required'
+        ]);
+
+        $path = $gallery->image;
+        if($request->hasFile('image')){
+            //* check if the path exists in public storage
+            $isExist = Storage::disk('public')->exists($path);
+            if($isExist){
+                //* delete old image from piublic storage
+
+                Storage::disk('public')->delete($path);
+                //* store new image in the public storage
+                $path = $request->file('image')->store('gallery', 'public');
+            }
+            
+        }
+
+        //*  update data in database
+        $gallery->update([
+            'photographer' => $request->photographer,
+            'category' => $request->category,
+            'image' => $path
+        ]);
+
     }
 
     /**

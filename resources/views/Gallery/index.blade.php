@@ -21,14 +21,22 @@
                             <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                 <h3 class="text-white text-xl font-bold">{{ $gallery->photographer }}l</h3>
                                 <p class="text-white/80 mt-1">{{ $gallery->category }}</p>
-                                <form action="{{ route('gallery.destroy', $gallery->id) }}" method="POST">
+                                <div class="flex itmes-center gap-x-2">
+                                  <form action="{{ route('gallery.destroy', $gallery->id) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                     <button
                                         class="px-8 py-3 bg-rose-600 text-white font-medium rounded-lg hover:bg-rose-700 transition-colors shadow-lg">
                                         Delete
                                     </button>
-                                </form>
+                                  </form>
+                                <a href="{{ route('gallery.edit', $gallery->id) }}">
+                                    <button
+                                        class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors shadow-lg">
+                                        Edit 
+                                    </button>
+                                </a>
+                                </div>
 
                             </div>
                         </div>
