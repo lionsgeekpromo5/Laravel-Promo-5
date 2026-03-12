@@ -48,24 +48,24 @@
 
             {{-- Subscribers List --}}
 
-{{-- 
+
                 <table class="min-w-full bg-white rounded-md ">
                     <thead class="border-b">
                         <tr>
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">#</th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Club Name</th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Club Address</th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Subscriber Name</th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Subscriber City</th>
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($clubs as $club)
+                        @foreach ($subscribers as $subscriber)
                         <tr class="border-b">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $club->id }}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $club->club_name }}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $club->club_address }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $subscriber->id }}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $subscriber->subscriber_name }}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $subscriber->subscriber_address }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                <a href="{{ route('subscribers.create') }}">
+                                <a >
                                     <button class="px-2 py-1 rounded-md bg-blue-300 text-white font-bold">Join</button>
 
                                 </a>
@@ -74,7 +74,7 @@
 
                     
                     </tbody>
-                </table> --}}
+                </table>
 
         </div>
     </div>

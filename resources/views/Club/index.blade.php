@@ -40,6 +40,7 @@
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">#</th>
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Club Name</th>
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Club Address</th>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Total Subscribers</th>
                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Actions</th>
                         </tr>
                     </thead>
@@ -49,6 +50,7 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $club->id }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $club->club_name }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $club->club_address }}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $club->subscribers->count() }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <a href="{{ route('subsciber.create' , $club->id) }}">
                                     <button class="px-2 py-1 rounded-md bg-blue-300 text-white font-bold">Join</button>

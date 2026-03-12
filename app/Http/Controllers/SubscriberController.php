@@ -6,6 +6,8 @@ use App\Models\Club;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
+use function Flasher\Prime\flash;
+
 class SubscriberController extends Controller
 {
     /**
@@ -22,7 +24,8 @@ class SubscriberController extends Controller
     public function create(Club $club)
     {
 
-        return view('Subscriber.create', compact('club'));
+        $subscribers = $club->subscribers()->get();
+        return view('Subscriber.create', compact('club', 'subscribers'));
     }
 
     /**
@@ -37,16 +40,25 @@ class SubscriberController extends Controller
             'subscriber_city' => 'required',
             'subscriber_age' => 'required'
         ]);
+        // check if the subscriber already exists
+        $subscriber = Subscriber::where('subscriber_name', $request->subscriber_name)->first();
+        if (!$subscriber) {
+            $subscriber = Subscriber::create([
+                'subscriber_name' => $request->subscriber_name,
+                'subscriber_city' => $request->subscriber_city,
+                'subscriber_age' => $request->subscriber_age
+            ]);
+        }
+        $isJoined = $subscriber->clubs()->where('club_id', $clubId)->exists();
+        //if subscriber already joined had l groub li l id == $clubId
 
-        $subscriber = Subscriber::create([
-            'subscriber_name' => $request->subscriber_name,
-            'subscriber_city' => $request->subscriber_city,
-            'subscriber_age' => $request->subscriber_age
-        ]);
+        if($isJoined){
+            flash()->info('You already Joind this Club');
+        }else{
+            $subscriber->clubs()->attach($clubId);
+        }
 
 
-        // $subscriber->attach()->$club();
-        $subscriber->clubs()->attach($clubId);
         return redirect()->route('clubs.index');
     }
 
